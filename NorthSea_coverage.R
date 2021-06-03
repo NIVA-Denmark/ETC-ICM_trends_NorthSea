@@ -7,10 +7,12 @@ library(scales)
 
 
 
-load("data/ICES_CHASE_NS_Stns.Rda")     # dfStn
-load("data/ICES_CHASE_NS_Sediment.Rda") # dfS
-load("data/ICES_CHASE_NS_Water.Rda")    # dfW
-load("data/ICES_CHASE_NS_Biota.Rda")    # dfB
+#load("data/ICES_CHASE_NS_Stns.Rda")     # dfStn
+#load("data/ICES_CHASE_NS_Sediment.Rda") # dfS
+#load("data/ICES_CHASE_NS_Water.Rda")    # dfW
+#load("data/ICES_CHASE_NS_Biota.Rda")    # dfB
+
+load("working_select_data.Rda")
 
 dfS2 <- dfS %>%
   mutate(STATN=ifelse(STATN=="",paste0(Longitude,"_",Latitude),STATN)) %>%
@@ -40,6 +42,7 @@ df2 <- dfX %>%
   mutate(Colour=ifelse(MYEAR %in% c(1970,1980,1990,2000,2010,2020),1,0))  %>%
   mutate(CountOf="Stations")
 
+
 df <- bind_rows(df1,df2)
 
 
@@ -58,7 +61,7 @@ p <-ggplot(df, aes(x=MYEAR,fill=factor(Colour))) +
 p
 
 
-ggsave("png/station_count.png",p,dpi=100,units="cm",width=15,height=12)
+ggsave("png/station_count.png",p,dpi=100,units="cm",width=20,height=12)
 
 dfstnplot <- dfX %>%
   distinct(Lat,Lon)
