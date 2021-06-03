@@ -30,16 +30,7 @@ dfB <- read.table(paste0(folder,fileB),sep="\t",header=T,quote="",comment.char="
 
 ![Station map](png/station_map.png)
 
-
 ![Station count](png/station_count.png)
-
-
-
-
-The file received from METU was a text file `data_from_Mersin.txt`. This is data exported from an odv file. Before importing into R, I used a visual basic script `preprocess.wsf` to manipulate the data into a format more easily read by R. In theory this could all be done directly in R but it was quicker for me to add this extra step outside R.
-The script file was run using the windows batch file `preprocess.bat`. The restructured data is saved as the file  `data_from_Mersin_for_R.txt`.
-
-The file  `data_from_Mersin_for_R.txt` is read into an R data frame using [Mersin_read_data.R](/Mersin_read_data.R). The data frame is saved as an R data file `data_from_Mersin.Rda`
 
 ### CHASE Method
 
@@ -49,9 +40,9 @@ Very briefly;
 
 * We compare measurements of hazardous substances in three categories (phases): 1) Water, 2) Sediment and 3) Biota.
 
-* The average concentration of each substance is calculated for each year and assessment unit. This is done for the substances for which there is a recognized threshold value [thresholds_v6.txt](data/thresholds_v6.txt). This is done by taking the log-mean average.
+* The average concentration of each substance is calculated for each year and assessment unit. This is done for the substances for which there is a recognized threshold value: [thresholds_v6.txt](data/thresholds_v6.txt). This is done by taking the log-mean average.
 
-* For each substance , the Contamination Ratio is calculated by calculating the ratio of the mean concentration versus the threshold value.
+* For each substance , the Contamination Ratio is calculated by as the ratio of the mean concentration to the threshold value.
 
 * The Contamination Score (CS) is calculated according to the CHASE method, as the sum of CR values divided by the square-root of the number of substances included/observed.
 
