@@ -748,7 +748,7 @@ dfCHASE_QE<-rbind(df.chase.biota,df.chase.sed,df.chase.wat)
 
 save(dfCHASE_QE,file="results/CHASE_QE.Rda")
 
-
+#####  ---------------------------- STOP HERE ------------------------------------
 
 df.CHASE.QE <- df.CHASE.QE %>%
   filter(GRIDCODE!="")

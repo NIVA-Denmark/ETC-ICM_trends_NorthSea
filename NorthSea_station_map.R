@@ -32,7 +32,7 @@ world_clip_LAEA_f <- fortify(world_clip_LAEA)
 
 # ----- Select North Sea stations  -----------------------------------------------------------------
 
-shape <- st_read(dsn="gis",layer="grid_NS_noUK")
+shape <- st_read(dsn="gis",layer="grid_NS_v1")
 shape <- st_set_crs(shape, 3035)
 
 #plot(shape)
@@ -81,7 +81,7 @@ p<-ggplot() +
   geom_point(data=df_stn_select,aes(x=x,y=y),size=0.2) +
   ylab("") + xlab("LAEA [EPSG:3035]") +
   #coord_sf(expand=FALSE, crs=st_crs(3035), datum=st_crs(3035)) +
-  coord_sf(xlim=c(3600000,4500000),ylim=c(3100000,4300000), expand=FALSE, crs=st_crs(3035) ) +
+  coord_sf(xlim=c(3450000,4500000),ylim=c(3100000,4300000), expand=FALSE, crs=st_crs(3035) ) +
   theme_ipsum() +
   theme(legend.position = c(0.98, 0.98),
         legend.justification = c(1,1),
@@ -91,5 +91,5 @@ p<-ggplot() +
                                        colour ="#AAAAAA"))
 p
 
-ggsave("png/station_map.png",p,dpi=100,units="cm",width=12,height=15)
+ggsave("png/station_map.png",p,dpi=100,units="cm",width=14,height=15)
 
