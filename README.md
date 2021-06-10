@@ -46,14 +46,13 @@ Very briefly;
 
 * The Contamination Score (CS) is calculated according to the CHASE method, as the sum of CR values divided by the square-root of the number of substances included/observed.
 
-* The contamination score is caclulated for each of the three categories.
+* The contamination score is calculated for each of the three categories.
 
 * A score greater than 1.0 indicates a contamination problem area. A score less than 1.0 indicates that this is not a problem area.
 
 
 ### CHASE Results
 
-![Sum of area by CHASE assessment class](png/CHASE_area.png)
-![CHASE average Class for North Sea](png/CHASE_timeseries.png)
+![CHASE results](png/CHASE.png)
 
 
